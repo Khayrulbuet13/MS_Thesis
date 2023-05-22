@@ -1,0 +1,142 @@
+\chapter{Results}
+
+\section{Effect of flow velocity on EV squeezing and drug loading}
+
+The effect of squeezing velocity on drug loading is analyzed first. The magnitude of force applied on the LB points is tuned to archive the desired maximum velocity in the center of the channel. Velocity distribution through the nanochannel is discussed on Appendix \ref{appendix:B} figure \ref{A:2}. Three cases with different flow velocities at the center of the channel are considered: a low velocity of $V_1=\ 300\ mm/sec$, a medium of $V_2=500\ mm/sec$ and a high velocity of $V_3=700\ mm/sec$. The velocity range is physiologically meaningful and consistent with experimental results published by previous researchers\cite{a64,a67}. For all cases, other parameters are kept constant to compare the effect of the flow velocity on the EV deformation. The channel length and width were fixed at $L=6D$ and $W=2D$ respectively, where $D$ is the diameter of EV. The constriction length  $L_{sq}$ and constriction width $W_{sq}$ were $2D$ and $0.7D$ correspondingly.
+
+Figure \ref{fig:4}a shows the snapshot of EV at different simulation points for $V_2$ case, namely before the EV enter the squeezing channel $(X_s)$, when the EV was at the middle of the constriction channel $\left(X_m\right)$ and at the exit of the constriction channel $\left(X_e\right)$. Figure \ref{fig:4}.b visualizes the molecular representation of the EV for XY plane at the same time points indicated in Figure \ref{fig:4}a. Figure \ref{fig:4}b(II) and (III) visualize the pore opening due to the squeezing of the nanochannel. 
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.8\columnwidth]{Image/4.vel_effect1.svg}
+  \vspace{0.5cm}
+  \caption{EV squeezing at a high flow velocity of $500 mm/sec$. (a) Visualization of the simulation channel from $XZ$ plane (b) molecular representation of EV from $XY$ plane. (I) EV at entrance location $X_s$, (II) EV at middle of squeezing channel $X_m$,  (III) EV at exit location $X_e$.}
+  \label{fig:4}
+\end{figure}
+
+Figure \ref{fig:5} visualizes the molecular representation of the pore opening for all the cases from the XY plane. It is visible from Figure \ref{fig:5} that with increasing velocity, the number of pores increases but the average pore radius decreases. Evans et al.\cite{a68} suggested that an increased loading rate between $1-10 mN/m$ for lipid vesicles results in higher critical rupture tension. Membrane rupture is prone to occur when the membrane tension increases above the critical. Higher flow velocity through the nanochannel results in a higher loading rate for the membrane, and the critical tension for pore opening increases. This phenomenon increases the internal energy of the membrane, and when internal energy crosses the critical limit, it generates an unstable pore in the membrane. With increasing critical internal energy value, energy stored before pore opening increases. This high internal energy reduces the area per pore but increases the number of pores generated. A similar trend is observed in our previous work\cite{a69}, where an increased stain rate significantly increases total pore area but reduces average pore size. Under high strain rates, the membrane surface energy is released faster by generating lots of tiny pores rather than expanding existing pores. The complicated structure of the EV tail can be related to the difference in velocity between the EV tail center (located in the high-speed centerline area) and the tail edge (located near the wall). An increase in fluid velocity results in a more complicated tail structure as it increases the velocity difference between the center and edge of the tail. As squeezing velocity increases, deformed EV vertical and horizontal diameter change increases accordingly due to the positive relationship between the cell deformability and the fluid driving force. Pore recovery is not modeled here due to the larger timescale of the pore recovery process compared to the simulation time scale.
+
+The instantaneous cell diameter along the vertical and horizontal direction is plotted in Figure \ref{fig:6}(a) and (b) respectively. The constriction region for the nanochannel is shown as the shaded region in all the graphs. The initial position for all simulations is fixed at $X_s=80\sigma$. The change in EV diameter is measured at the three zones described above. For all the cases, the horizontal diameter increases with the progression through the nanochannel.
+In the beginning, the diameter changes at a lower rate, increasing up to the middle of the constriction. Then the EV diameter change becomes stable during squeezing. For the rest of the channel, diameter decreases again as part of the EV already passed the narrow constriction. Vertical diameter shows an inverse trend in comparison to horizontal diameter. It starts with a slight decrease with a higher decrease in diameter up to the middle of the constriction. Then it shows a stable diameter followed by an increase in diameter at the end of the channel. With increasing flow velocity, horizontal diameter increases to a greater extent and vertical diameter decreases at the same rate as the volume of the EV need to be constant. Figure \ref{fig:6} (c) visualizes the change of Center of Mass (COM) velocity at different channel locations. 
+\\
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.8\columnwidth]{Image/5.vel_effect2.svg}
+  \vspace{0.5cm}
+  \caption{ Simulation setup (a) XY view, (b) orthogonal view, (c) CG model of EV, (d) and (e) simulation box with EV}
+  \label{fig:5}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.9\columnwidth]{Image/6.vel_effect3.svg}
+  \vspace{0.5cm}
+  \caption{Simulation result under various flow velocities. (a) horizontal diameter, (b) vertical diameter, (c) Center of Mass (COM) velocity, and (d) Pore area vs. channel location (e) Drug loading over time}
+  %\vspace{0.5cm}
+  \label{fig:6}
+\end{figure}
+
+We observed an increase in COM velocity with a maximum velocity at the center of the constriction for all cases. The EV velocity increases as the flow velocity increase at the center of the channel due to the constriction. The velocity profile observed here is consistent with the experimental value observed in Sharei et al.\cite{a64,a67,a70}. Due to EV deformation, transient pores appear on the EV membrane. Figure \ref{fig:6} (d) visualizes the EV pore area at different channel locations. The porosity of the EV membrane increases until it reaches $X_m$. Subsequently, the porosity starts to decrease due to the recovery contraction of the cell membrane. The generation of transient pores shows a positive relationship with the flow velocity. With the increase in flow velocity, the pore area increases significantly. At the beginning of the EV constriction, the area increases slowly, reaching a maximum value at the center. Afterward, the area again starts to decrease due to EV shrinkage. Figure \ref{fig:6}(e) represents the variation of drug loading rate within 30 sec of pore lifetime. The drug loading rate increases significantly with the flow velocity due to higher pore area generation. It is also visible from the graph that with the increase in flow velocity, the time required to reach the steady state also increases. This phenomenon is in agreement with the previous experimental results\cite{a64,a67}. Increase in flow velocity from $V_1$ to $V_2$ bumped up drug loading by $~200\%$, while an increase in velocity from $V_2$ to $V_3$ enhanced the drug loading by $~40\%$
+
+\section{Effect of channel width on EV squeezing and drug loading}
+
+We squeezed EVs at different constriction widths to study the effect of channel width on drug loading. We have considered three constriction widths, i.e., $W_1=0.6D,\ W_2=0.7D,\ W_3=0.8D$, where D is the diameter of the EV. For all the cases, EV velocity and constriction length are kept constant at $V_2\approx500\ mm/sec$ and $L=6D$ respectively. EV shapes at different channel locations are visualized in Figure \ref{fig:7}. EV protrusion deformation is more apparent in narrower channels compared to the others. As we kept EV average velocity identical for all the cases, EVs required a greater driving force to go through the narrower channels. This phenomenon results in higher membrane stretch for narrower channels. The EV tail has a more complex tail shape for higher driving force through the narrower channels, which causes a higher cell elongation towards the flow direction. It is observed from Figure \ref{fig:7} that narrower constriction causes the generation of a larger number of pores as well as a larger pore area. EV cells expand along the flow direction until they cross the narrow constriction. Afterward, it starts to shrink and transient pores healing takes place. It is observed from Figure \ref{fig:7}(c) that although a narrower constriction creates more pores in the EV, having an extremely narrower constriction can potentially damage the EV permanently and stop the EV from recovering to its original shape (See supplementary material for EV damage criteria). Thus, designing constriction width for squeezing EVs needs proper attention and the value needs to be optimal, facilitating desired drug loading while keeping the EV recoverable.
+\\
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.9\columnwidth]{Image/7.width1.svg}
+  \vspace{0.5cm}
+  \caption{ EV shape during squeezing at $V_2 ≈500 mm/sec$ and $L=6D$. (a) No pore under constriction width $W_{sq}=.8D\ \sigma$; (b) circular pore for constriction width $W_{sq}=.7D\ \sigma$; (c) EV damage for constriction width $W_{sq}=.6D\ \sigma$}
+  \label{fig:7}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.9\columnwidth]{Image/8.width2.svg}
+  \vspace{0.5cm}
+  \caption{EV squeezing simulation result under various channel widths. (a)  horizontal diameter, (b) vertical diameter, (c) Center of Mass (COM) velocity, (d) Pore area vs. channel location, (e) Drug loading over time}
+  %\vspace{0.5cm}
+  \label{fig:8}
+\end{figure}
+
+Figure \ref{fig:8} (a) represents the change in horizontal diameter as a function of COM location along the channel. In all graphs, the constriction regions are shaded zone. All the graphs indicate a similar trend, as discussed in previous section. It shows a similar trend of increase in horizontal diameter as it propagates through the constriction, which is consistent with Figure \ref{fig:7}. With the increase in channel constriction, a decrease in the EV diameter becomes more prominent as it faces more driving force to go through the constriction. Figure \ref{fig:8} (b) shows that as the horizontal diameter increases, the vertical diameter decreases as EVs move along the channel due to the conservation of volume. EV velocity as a function of COM location for different constriction widths is illustrated in Figure \ref{fig:8} (c) EV drug loading increases at a higher rate for reduced constriction than in the other cases due to higher flow velocity. However, the difference in COM velocity for various constrictions is minimal as the fluid inlet velocity for the channel was kept constant for all cases. Figure \ref{fig:8}(d) represents the change in pore area for different cases of channel constriction. As observed in Figure \ref{fig:7} the number of pores generated in narrower constriction is higher than in others. This occurrence results in a larger pore area for narrower constriction, as shown in Figure \ref{fig:8} (d). The normalized drug concentration inside the EV cell is visualized in Figure \ref{fig:8} (e). Drug concentration has a positive relationship with porosity and an increase in porosity results in higher drug concentration inside the EV. This trend is consistent with previously published results from Sharei et. al.\cite{a64,a67} It should be mentioned that decreasing constriction from $0.7D$ to $0.6D$ results in more drug concentration in the EV compared to the change from $0.8D$ to $0.7D$. Reducing constriction from 0.8D to 0.7D results in a $~500\%$ increase in drug concentration, whereas a change in constriction from $0.7D$ to $0.6D$ causes a $~166\%$ increase.
+
+\section{Effect of EV diameter on EV squeezing and drug loading}
+ 
+This section analyzes the effect of EV diameter on pore formation and drug loading. We have simulated three cases with different EV diameter $D_1=60\sigma$,\ $D_2=70\sigma$ and $D_3=80\sigma$. All the channel length is kept constant at 6D to keep the EV diameter to channel geometry ratio fixed. Here D is the diameter of the EV. For each case, the EV is positioned at X = 1D location. The constriction length of 2D is considered in the middle of the channel. All the other parameters like flow velocity are kept constant at $V_2\approx500\ mm/sec$ and $L=6D$ respectively. Cell shapes at different channel locations are illustrated in Figure \ref{fig:9}. As shown in the Figure \ref{fig:9} EV with $60\sigma$ diameter does not have any visible pore whereas $70\sigma$ diameter EV showed only 3 nanopores on the top view of the membrane. On the other hand, $80\sigma$ diameter EV shows 4 nanopores, and pore areas are more prominent than in all other cases. The increase in EV diameter shows a more complex tail geometry as it has a higher membrane area that deforms easily compared to the EV with a lower membrane area.
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.9\columnwidth]{Image/9.dia1.svg}
+  \vspace{0.5cm}
+  \caption{EV shape during squeezing at ${V_2}\approx 500\ mm/sec$ and $L=6D$ for various EV sizes.
+  (a) EV diameter $D=60\sigma$, (b) EV diameter $D=70\sigma$, (c) EV diameter $D=80\sigma$}
+  \label{fig:9}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.9\columnwidth]{Image/10.dia2.svg}
+  \vspace{0.5cm}
+  \caption{EV squeezing simulation result for EV of various diameters. (a)  horizontal diameter, (b) vertical diameter, (c) Center of Mass (COM) velocity, (d) Pore area vs. channel location, and (e) Drug loading over time.}
+  %\vspace{0.5cm}
+  \label{fig:10}
+\end{figure}
+
+The horizontal diameter of EV at different COM positions is visualized in Figure \ref{fig:10}(a). Each graph starts from a different starting point as we positioned them at X=1D to keep the diameter to channel length ratio constant. Each case has a constriction region of 2D shaded with different colors on all graphs. EV with a larger diameter has a larger expansion deformation than the other cases. Figure \ref{fig:10}(b) illustrates the decrease in vertical diameter as a function of COM position. The EV’s vertical diameter development decreases as it passes through the narrow constriction due to the conservation of volume. Figure \ref{fig:10}(c) visualizes the change in COM velocity for different EV diameters. 
+The pore area for EVs of different diameters is presented in Figure \ref{fig:10}(d). It is observed that the EV with a larger diameter has a larger pore area compared to the smaller diameter counterparts. It should be mentioned that the EV with $D_1=60\sigma$ in Figure \ref{fig:9} shows no pore in molecular representation. However, using the Delaunay tessellation method, surface representation showed some transient pore and the pore area for drug loading is calculated based on that post analysis. The normalized drug concentration inside the EV cell is visualized in Figure \ref{fig:10}(e). Drug concentration has a positive relation between porosity and an increase in porosity resulting in higher drug concentration inside the EV.
+
+\section{Effect of channel length on EV squeezing and drug loading}
+
+Lastly, we checked the effect of squeezing length/duration on EV drug loading by varying constriction length from $L_{sq_1}=1D,\ L_{sq_2}=2D$ and $L_{sq_3}=3D$. The channel length is chosen as $ L_1=5D,\ L_2=6D$ and $L_3=7D$ to keep the inlet and outlet distance constant for all cases. All the other parameters like flow velocity and channel width are kept constant at $V_2\approx500\ mm/sec$ and $W=2D$ respectively. Cell shapes at different channel locations are illustrated in Figure \ref{fig:11}. The cell dynamics and deformation are pretty similar to that described in the previous sections. As shown in Error! Reference source not found., the EV deformation is larger for greater constriction lengths.
+
+Figure \ref{fig:12}(a) shows the change in EV diameter as a function of COM position. The EV diameter changes with increased constriction length. In Figure \ref{fig:12}(b), we observe an opposite relationship between the vertical diameter and constriction length consistent with the abovementioned results. EV COM velocity as a function of COM position is visualized in Figure \ref{fig:12}(c) where the trend is almost the same for all cases as all the flow is already developed and changing channel length does not change flow condition. 
+\\
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.9\columnwidth]{Image/11.length1.svg}
+  \vspace{0.5cm}
+  \caption{EV shape during squeezing at ${V_2}\approx 500\ mm/sec$ and $L=6D$ for various EV sizes.
+  (a) EV diameter $D=60\sigma$, (b) EV diameter $D=70\sigma$, (c) EV diameter $D=80\sigma$}
+  \label{fig:11}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.9\columnwidth]{Image/12.length2.svg}
+  \vspace{0.5cm}
+  \caption{EV squeezing simulation result for EV of various diameters. (a)  horizontal diameter, (b) vertical diameter, (c) Center of Mass (COM) velocity, (d) Pore area vs. channel location, and (e) Drug loading over time.}
+  %\vspace{0.5cm}
+  \label{fig:12}
+\end{figure}
+
+As shown in Figure \ref{fig:12}(d) pore area increases as the constriction length increases and is consistent with the result above. Finally, Figure \ref{fig:12}(e) shows the normalized drug concentration inside the EV with respect to loading time. It suggests that drug loading is a function of channel length; a longer channel leads to higher normalized drug loading. Therefore, the result is consistent with experimental findings 64,68 suggesting that higher loaded drug concentration can be achieved by increased squeezing channel length. 
+\\
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.9\columnwidth]{Image/13.guidance.svg}
+  \vspace{0.5cm}
+  \caption{Phase diagram of pore formation status under different EV velocities and constriction widths.  The damage zone is where permanent damage or rupture happens on EV. No pore zone is where there is no pore formation on EV. The safe zone is the suggested status where transient pores are formed on EV, enabling drug loading.}
+  \label{fig:13}
+\end{figure}
+
+To provide guidance on how to design proper channel geometry and EV velocity for effective pore opening and drug loading, we performed simulations under a large range of EV squeezing velocities and nanochannel widths. In Figure \ref{fig:13}, a pore opening status phase diagram is generated as a function of EV velocity and constriction width. We categorize EV squeezing results into damage zone, safe zone, and no pore zone. Damage zone is where permanent damage or rupture happens on EV. No pore zone is where there is no pore formation on EV. Safe zone is the suggested status where transient pores are formed on EV enabling drug loading. From the phase diagram, it is clear that lower constriction width and higher exoso EV me velocity can potentially damage the EV, based on the criteria described in the Appendix \ref{appendix:C} (Figure \ref{A:3}) On the other hand, squeezing the EV with a higher width and lower EV velocity between the above two zones is a safe zone that generate transient pores on EV which is favorable for drug loading. 
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.9\columnwidth]{Image/14.bar_chart.svg}
+  \vspace{0.5cm}
+  \caption{Summary of maximum pore area for EV squeezing under various conditions.}
+  %\vspace{0.5cm}
+  \label{fig:14}
+\end{figure}
+
+Figure \ref{fig:14} summarizes the maximum pore area for various cases presented above. The pore area under each parameter's lower, middle and higher value results were reported. The lower value for velocity is $300\ mm/sec$, with a median value of $500\ mm/sec$  and a higher value of $700\ mm/sec$. Similarly, for the length case, the constriction length values are 1D, 2D and 3D respectively. For the diameter case, the diameters are considered for $60\sigma,\ 70\sigma$ and $80\sigma$  respectively. Lastly, for the width case, the constriction widths of 0.6D, 0.7D and 0.8D are considered respectively. The lower constriction width case shows an abnormally high maximum pore area. The observation is consistent with Figure \ref{fig:7} and results from the highly narrow constriction that causes the EV to be damaged. Thus, the EV drug loading is very sensitive to channel width change, followed by a change in flow velocity.
+
+
+
+

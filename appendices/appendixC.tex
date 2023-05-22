@@ -1,0 +1,29 @@
+\chapter{EV damage criteria}\label{appendix:C}
+
+Extracellular vesicle (EV) being a subtype of extracellular vesicle and made of lipid-bilayer nanoscale membrane particles (one head and two tails), we believe the damage of EV should follow similar failure criteria as a standard biological membrane. Literature review \cite{s1,s2,s3} reveals that bilayer membrane ruptures are prone to occur between tension $\sim1-25 \ mN/m$, which corresponds to strain value in the order of $2 -5\%$. Evans et al\cite{s4} found two distinct regimes for rupture: low-strength cavitation-limited and a high-strength defect-limited regime with a transition at loading rate(tension/time) for DOPC bilayer membrane around $10 mN/m/s$. They show that membrane failure is not a static material property but a function of dynamic loading. Membrane tension can vary from $6 mN/m$ to $13 mN/m$ for loading rates of 0.07 mN/m/s and $25 mN/m/s$ respectively. Our squeezing simulation of EVs through nanochannel causes the EV to be damaged. Zevnik \cite{s5} et al. show through simulation that for a high loading rate in the range of $\sim 10^9 – 10^{10} \ mN/m/s$ critical rupture strength rises logarithmically and stays between 80 to $95 \  mN/m$. Their results closely mimic the molecular dynamics simulation of liquid-phase DPPC bilayer\cite{s6}. Based on the values from the literature, we considered two criteria for EV damage. The primary damage criterion is the areal strain value of 0.203 and the secondary damage criterion is the aggregation of pores.
+
+\section{Primary damage criteria}
+
+The primary cause of EV membrane damage is the creation of pores caused by squeezing the EV through the nanochannel. Zevnik et al. 5 show that for an equibiaxial loading case, the critical stress value is 20MPa. Although the pore formation and subsequent EV damage largely depend on the strength of the membrane here, we consider a critical areal strain of value 0.203 calculated from obtained linear strain by Zevnik et al. 5.
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=.8\columnwidth]{Image/Appendix/s3.svg}
+  \vspace{0.5cm}
+  \caption{Safe vs damage zone of EV for change of width case}
+  \label{A:3}
+\end{figure}
+
+\section{Secondary damage criteria}
+
+The secondary cause of EV damage is due to aggregation of pores. If two or more pore aggregate together, it creates a massive irregular-shaped pore in the membrane, potentially damaging the cell. The aggregation of pores is inspected after constructing the surface mesh, as described in section 2.2 of the paper. Most of the single pore is roundish in shape if no pore aggregation happens. 
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=.7\columnwidth]{Image/Appendix/s4.svg}
+  \caption{Pore aggregation for $W_1=0.6D$ case}
+  \label{A:4}
+\end{figure}
+
+As shown in figure \ref{A:3}, the threshold areal strain value of .203 divides the graph into the damage zone and safe zone. The first case from the width change fulfils both criteria to be considered a damaged EV case. Figure \ref{A:3} shows the areal strain for various constriction width cases. Areal strain for width $W_1=0.6D$ is calculated as 0.218, above our estimated threshold value of 0.203 and falls in the EV damage zone. A trend line is drawn connecting the three data points, and the intersecting point between the threshold value and the trendline is marked with a red box. The intersection point is then extrapolated towards the x-axis to get the desired minimal channel width value to achieve maximum exosomal pore without damaging the EV. Figure \ref{A:4} shows the aggregation of pores with surface representation as described in section 2.2 of the paper. The pore aggregates as the exos EV ome propagate along the flow direction, creating a larger irregular-shaped pore.
+

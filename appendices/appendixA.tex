@@ -1,0 +1,14 @@
+\chapter{EV initial structure}\label{appendix:A}
+
+Generating an initial stable EV structure for molecular dynamics simulations is crucial in accurately studying EVs and their behavior. While there are multiple methods for generating EV structures, one widely adopted approach involves utilizing an in-house script to create the EV and then equilibrating it to achieve stability. The initial creation of the EVs involves carefully placing the lipid molecules in a periodic box and arranging them in a bilayer configuration while aligning the tails with the head of the lipid and maintaining a constant distance between the head groups. Following this, the EV is subjected to equilibration, which allows it to relax and attain a stable configuration. Equilibration is a fundamental step in the process, as it involves simulating the EV under conditions that allow for relaxation and equilibrium. We enable the initial structure to be equilibrated using a Langevin thermostat while closely monitoring the fluctuations in shape, size, and orientation of the lipids, and the simulation is run for a sufficient amount of time until a stable liposome configuration is obtained.
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=1\columnwidth]{Image/Appendix/s1.svg}
+  \vspace{0.5cm}
+  \caption{Temperature fluctuation over time}
+  \label{A:1}
+\end{figure}
+
+In Figure \ref{A:1}, we can observe the temperature fluctuations over time. The temperature visualization includes two distinct colors to differentiate between the instantaneous temperature and the temperature the thermostat defines. Blue represents the instantaneous temperature, while orange represents the temperature specified by the thermostat. The figure clearly shows that the temperature initially spiked up at the very beginning of the simulation. This spike can be attributed to the unstable initial structure manually created using our script. However, it's important to note that this spike was quickly brought down to the desired temperature by implementing the Langevin thermostat. The Langevin thermostat is a widely used method to control the temperature in molecular dynamics simulations by mimicking the effect of a heat bath on the system. With the Langevin thermostat, the temperature was tabilized and fluctuated around the set temperature. This fluctuation is natural, as expected, and indicates that the simulation is proceeding with a minimized stable configuration.
+

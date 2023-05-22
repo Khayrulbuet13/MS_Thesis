@@ -1,0 +1,139 @@
+\chapter{Methods}
+%Your thesis will likely contain images, graphs and charts. This chapter explains how to deal with these. 
+
+
+\section{Simulation setup and parameters}\label{subsec: Simulation setup and parameters}
+
+In this study, we employed the implicit solvent CG model of Cooke and Deserno\cite{a53} to model the lipid vesicles where one hydrophilic head and two hydrophobic tail particles represent the lipid molecule Figure \ref{fig:2} (c). Weeks-Chandler-Anderson potential given by Eq. \ref{eq:1} governed all the interactions among particles. 
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:1}
+v(r)=\left\{
+\begin{array}{cc}
+4 \varepsilon\left[\left(\frac{\sigma}{r}\right)^{12}-\left(\frac{\sigma}{r}\right)^6+0.25\right] & r \leq r_c \\
+0 & r \geq r_c
+\end{array}\right.
+\end{equation}
+\vspace{0.5cm}
+
+In which the $\epsilon$ and $\sigma$ are the energy and length units of the system respectively. Here, $r$ is the distance between two particles and $r_c$ is the critical distance which is $r_c=2^{1.2}\sigma$. We set $\sigma_{H-H}= \sigma_{H-T}=\ 0.95\sigma$ for the interactions of head particles and  $\sigma_{H-H}=\sigma$ to ensure the cylindrical shape of lipid molecules. To represent the solvent effects, an attractive potential with the form of Eq. \ref{eq:2} with the range of $w_c$ is added only to the tail particles.
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:2}
+v_{a t t}(r)=\left\{\begin{array}{cc}
+-\varepsilon & r<r_c \\
+-\varepsilon \cos ^2\left(\frac{\pi\left(r-r_c\right)}{2 w_c}\right) & r_c \leq r \leq r_c+w_c \\
+0 & r>r_c+w_c
+\end{array}\right.
+\end{equation}
+\vspace{0.5cm}
+
+The range of attractive interactions is tuned by the $w_c$ parameter. This tunable parameter can affect the self-assembly and phase behavior of the lipid membrane and is set to $w_c=1.6\sigma$ in the rest of this study\cite{a53,a54,a55}. Head and tail CG beads are bonded to each other with the finite extensible non-linear elastic (FENE) bond in the form of Eq. \ref{eq:3}:
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:3}
+v_{\text {bond }}(r)=-\frac{1}{2} k_b r_0^2 \ln \left(1-\left(\frac{r}{r_0}\right)^2\right)
+\end{equation}
+\vspace{0.5cm}
+
+In which the bond constant is $k_b=30\in/\sigma^2$ and the maximum bond length $r_0=1.5\sigma$. The lipid molecule is straightened by a harmonic angular potential of the form Eq. \ref{eq:4}:
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:4}
+v_{\text {bend }}(\theta)=\frac{1}{2} k_a(\theta-\pi)^2
+\end{equation}
+\vspace{0.5cm}
+
+In which the angle constant is $k_a=10\in/rad^2$ and $\theta$ is the angle in radian made by the three CG beads of each lipid molecule. The above equation calculates the  potential energy associated with the bond angle. This potential energy function is a harmonic function, meaning that the potential energy increases quadratically as the bond angle deviates from the equilibrium angle. The equilibrium angle between CG beads is considered $\pi$ radian in our case. The hydrodynamic is solved by the lattice-Boltzmann equations\cite{a56,a57}.
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.7\columnwidth]{Image/2.simu_setup.svg}
+  \vspace{0.5cm}
+  \caption{ Simulation setup (a) XY view, (b) orthogonal view, (c) CG model of EV, (d) and (e) simulation box with EV}
+  \vspace{0.5cm}
+  \label{fig:2}
+\end{figure}
+
+A stochastic fluctuation term that conserves the local mass and momentum is added to the stress tensor to address critical thermal fluctuations at the nanoscale. Details of the stochastic term implementation can be found in the works of Ladd \cite{a58} and Dunweg and Ladd\cite{a59}. We used the same grid size as the length unit of the CG model. Moreover, the time step is very similar to lattice-Boltzmann and MD simulations. The fluid domain is then coupled with the CG beads by a friction-based approach based on the implementation of Alrichs and Dunweg\cite{a46} in which the velocities of the fluid domain are interpolated for each CG bead and the thermalized coupling force can be written as Eq. \ref{eq:5}
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:5}
+\vec{F}=-\gamma\left(\vec{u}-\vec{v}\right)+\vec{\chi}
+\end{equation}
+\vspace{0.5cm}
+
+The coupling is tuned by the friction parameter $\zeta$. Here, $\vec{u}$ and $\vec{v}$ are the fluid and particle velocities respectively. $\vec{\chi}$ is a zero-mean stochastic force that satisfies Eq. \ref{eq:6}:
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:6}
+\left\langle\chi_i(t)\chi_j\left(t^\prime\right)\right\rangle=2\zeta k_BT\delta_{ij}\delta\left(t-t^\prime\right)
+\end{equation}
+\vspace{0.5cm}
+
+In which the $k_B$ is the Boltzmann constant, $T$ is the system temperature and $\delta$ is the Kronecker delta. Each particle is assumed to have the same mass that makes the unit of time $\tau=\ \sqrt{\frac{m\sigma^2}{\epsilon}}$ reasonable. In this work, the simulation is carried out with a time step of $\delta t=0.01\tau$ to ensure that the simulation accurately captures the dynamics of the lipid molecules and avoids numerical instability while keeping the simulation computationally inexpensive. We aim to develop a standard algorithm to model EV drug loading for different lipid conformations. Thus, the particles in our system do not correspond to any specific molecules, making the conversion to SI unit requires some interpretation. Each lipid tail can be considered a crude approximation of two-tail lipids, where each tail bead represents strands of five CH2 groups. This assumption makes the length scale of the model $\sigma=\ .6\ nm$ and the mass scale of $N_Am\ \approx140\ g/mol$. The temperature of the system is the same as body temperature, $T = 310 K$ causes the units of energy being $\varepsilon=4.27\times{10}^{-21}J$. 
+
+The number of beads used for creating the EV varies between 44k~90k with a change of diameter, $60\sigma ~80\sigma$. The area per lipid for outer and inner leaflet is measured by dividing the surface area of the leaflet by the lipid head number for each leaflet. The equilibrated EV has area per lipid (APL) at outer leaflet $a^+$ and inner leaflet $a^-$ $1.1\sigma^2$ and $1.3\sigma^2$ respectively, which is very similar to Cooke and Deserno\cite{a55}. The equilibrium APL in the outer and inner leaflet is different and the average APL is calculated by averaging the values. The average APL for the EV is measured to be $a_{avg} = 1.2\sigma$. Choice of potential width  $\ w_c$ and temperature $K_BT$ are critical for defining the fluidity of the membrane. We choose $w_c$ and $K_BT$ value to be $1.6$ and $1$ respectively that to be in the fluidic phase to ensure in plane fluidity of the membrane. With the estimates of $\sigma=0.6\ nm$ the calculated bilayer thickness is $~2.64 nm$. The measured value is less than the typical bilayer thickness of $~5nm$, but it is still in the lower but acceptable range of the reported range of bilayer thickness\cite{a60}.
+
+The EV is created using an in-house script, maintaining equal distance between head beads and aligning the tails with the head of the lipid as visualized in Figure \ref{fig:2}(a) and (b). Then the structure is equilibrated to get a stable stress-free configuration using Langevin thermostat with the temperature of $K_BT=1\epsilon$ and timestep of $0.01 \tau$ for  $500\tau$ (see figure Appendix \ref{appendix:A} for detail). The stress-free structure is verified by observing minimal potential energy with a fluctuation of $<1\%$. Then the EV is exposed to the fluid flow created through an implicit representation of fluid via the Lattice-Boltzmann Method (LBM) of the ESPResSo package\cite{a61}. LBM is the first and most efficient lattice-based method that can be coupled with molecular dynamics, enabling the inclusion of hydrodynamic interactions into the simulation. In this method, Poiseuille flow is created by applying a homogeneous external body force density to the fluid in the MD unit. The simulation setup is visualized in Figure \ref{fig:2} (d) and (e).
+
+The flow in a nanochannel around the EV is laminar. No-slip box boundary condition is used to simulate fluid flow throughout channel geometry. This boundary condition assumes that the fluid in contact with the wall is stationary and has zero velocity. Reynolds number is maximum at the narrow channel where the fluid has maximum velocity. The Reynolds number (Re) is calculated as $Re=\frac{v\rho L}{\mu}$. Here $L$ is the characteristic length of the channel, $v$ is the velocity of the fluid, $\rho$ the density of the fluid, and $\eta$ the dynamic viscosity of the fluid. In our simulation, the characteristic or cord length of the largest rectangular channel is $160 \sigma$. Using the value of dynamic viscosity $\eta=1.98$ $\pm 0.16{\ \sigma}^{-2}\sqrt{m\epsilon}$, ${\rho=0.8}$ $\sigma^3$ and highest velocity $v\approx1.0\sqrt{\in/m}$ maximum Reynolds number calculated as $Re = 564$.
+
+\section{Pore area and drug diffusion analysis}\label{subsec: Pore area and drug diffusion analysis}
+
+The drug loading largely depends on the formation of pores on the EV surface, which needs to be accurately measured. However, it is difficult to calculate the size and area of the many pores formed on the EV since these pores are voids enclosed by discrete CG beads. To quantitatively measure the area of many pores formed on the EV surface, we converted the bead representation of the EV into a surface representation to analyze the pore formation. A triangulated surface mesh construction method developed by Stukowski\cite{a63} is followed to convert the three-dimensional particle into a geometric surface. This method uses the Delaunay tessellation method to construct the surface based on particle coordinates. It tessellates the three-dimensional spaces into tetrahedral simplices, which are subsequently classified as either belonging to an empty or filled spatial region. Finally, it constructs the surface manifold that separates the empty and filled region of space. To assign each tetrahedral Delaunay element to either the filled or the empty region concept of a probe sphere with a suitable radius is implemented. The empty region is a collection of all spaces where the probe can fit without touching any particles. The remaining tetrahedral regions are considered filled regions. Thus, the value of this probe radius is critical to calculating the empty region, and the probe sphere radius selection needs some investigation. It depends on how much atomic detail we want to capture in the pore definition. A smaller probe radius enables the capture of more detailed features with the cost of computational power. In our system, we choose the probe radius to be $1 nm$ which is the same value as the first nearest neighbor found by calculating $g(r)$ value (see Figure \ref{A:4} for surface representation of EV using Delaunay tessellation method).
+
+Sharei et al.\cite{a64} observed that the drug loading process happens within the first minute of the treatment process. This reported time scale for this process is independent of the empirical parameters and system design. Also, according to McNeil and Steinhardt\cite{a65}, it takes around 30 sec for the membrane to recover after transient pore opening. Previous work on pore dynamics suggested a longer pore opening time for largely deformed membranes under high-speed stretching. Therefore, assuming that the EV reaches maximum porosity during squeezing is reasonable. Based on experimental observation, we believe all pores will be healed after 30 sec following an exponential decay function regardless of their shape and size. The exponential decay function can be defined as:
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:7}
+A_{pore} = A_{max}^o\exp\funcapply(-\gamma t)
+\end{equation}
+\vspace{0.5cm}
+
+Here $A_{max}^o$ is maximum pore area calculated right after squeezing, $\gamma$ is the decay constant and can be measured by considering $\frac{A_{pore}}{A_{max}^o}={10}^{-6}$ or a negligible value after 30 sec of squeezing. Drug loading inside the membrane is a diffusion process therefore, drug concentration inside the EV can be governed as:
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:8}
+\frac{\delta C}{\delta t}=\ \nabla\bullet(D_{eff}\nabla C)
+\end{equation}
+\vspace{0.5cm}
+
+Where $D_{eff}$ and $C$ is the effective diffusion coefficient and drug concentration inside the EV respectively. The effective diffusion coefficient is considered to be $3\ \times{10}^{-15}\ m/s$ consistent with\cite{a64}. They obtained membrane diffusivity by simulating the diffusion of the delivery material into the cells suspended in a buffer of the delivery material. They also simulated the diffusion of material from the cell into a clean solution with no delivery material. The volume integral can be converted into a surface integral using the divergence theorem. A surface integral on the EV surface can be approximated as:
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:9}
+\frac{\delta C}{\delta t}V_{exosome}=\ D_{eff}\left[\left(\nabla C\right)_{out}-\left(\nabla C\right)_{in}\right)A_{pore}
+\end{equation}
+\vspace{0.5cm}
+
+Here $\left(\nablaC\right)_{out}$ can be considered as zero as the concentration of the buffer can is higher than the concentration inside the EV. Considering drug concentration $C_b$ to be constant over time makes equation 9 further simplified.
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:10}
+-\left(\nabla C\right)_{in}=\frac{C_b-C}{L{(\epsilon}_A)} 
+\end{equation}
+\vspace{0.5cm}
+
+Where $L$ is the membrane thickness of EVs determined as a function of areal strain. More details on the calculation of membrane thickness can be found in our previous article\cite{a66}. By substituting Eq. \ref{eq:10} into Eq. \ref{eq:9} and solving the ordinary differential equation (ODE) with an initial condition $C=0$ at $t=0$ we get
+
+\vspace{0.5cm}
+\begin{equation}\label{eq:10}
+\frac{C}{C_b}=\ 1-\exp \ [\frac{D_{eff}A^o}{\gamma V_{exosome}L{(\epsilon}_A)}\ \left(\exp{\left(-\gamma t\right)}-1\right)] 
+\end{equation}
+\vspace{0.5cm}
+
+\section{Model agreement with literature}
+
+We analyzed the behavior of the lipid vesicle under a high shear rate flow. To verify the correct range of friction parameters, we compare the deformation index (DI) in our model with theoretical analysis of Seifert\cite{a62}. DI is defined as $DI=(l-s)/(l+s)$ in which the $l$ and $s$ are the lengths of the major and minor axis respectively. The Capillary number $(Ca)$ can be defined as the ratio of the viscous drag to the surface tension, can be written in the form of $Ca=\mu\dot{\gamma}D^3/8E_b$, in which $\mu$ is the fluid viscosity,  $\dot{\gamma}$ is the shear rate defined as $v_{\mathrm{wall\ }}/H$ in which the $H$ is channel height, $v_{\mathrm{wall\ }}$ is the velocity of moving boundary condition, $E_b$ and  is the bending rigidity which is $E_b\ \approx12\ k_BT$ \cite{a33, a38}. The diameter of the vesicle is set to $D=60\sigma$. To analyze the effect of friction coefficient on the $DI$ of the vesicle, we set the $Ca=0.2$ and measured the $DI$ after a long time equilibration of (to guarantee the stable shape of vesicle) under shear flow with various friction coefficients. 
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[inkscapelatex=false,width=0.7\columnwidth]{Image/3.validation.svg}
+  \vspace{0.5cm}
+  \caption{ Simulation setup (a) XY view, (b) orthogonal view, (c) CG model of EV, (d) and (e) simulation box with EV}
+  \vspace{0.5cm}
+  \label{fig:3}
+\end{figure}
+
+Figure \ref{fig:3}a shows the effects of friction parameters on the DI of vesicles under shear flow. The vesicle may experience more deformations at the same Ca number at the higher friction coefficients. Figure \ref{fig:3}c Shows the snapshots of vesicles under shear at $Ca=0.2$ and various friction parameters. As shown in Figure \ref{fig:3}a, a good agreement with the theoretical results can be seen at $\zeta\approx2$. We repeated the simulations with the friction parameter of $\zeta\approx2$ at various Ca numbers from 0.05 to 0.25. As shown in Figure \ref{fig:3}b, a good agreement with theoretical results can also be seen for $Ca$ numbers less than 0.2. Thus, $\zeta\approx2$ was chosen for the simulations in the rest of this paper.
