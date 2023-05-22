@@ -14,7 +14,7 @@ This is an unofficial LaTeX template for writing a thesis at Lehigh University. 
 To start using the template, follow these steps:
 
 1. Download or clone this repository.
-2. Open the main LaTeX file (e.g., `thesis.tex`) in your preferred LaTeX editor.
+2. Open the main LaTeX file (e.g., `main.tex`) in your preferred LaTeX editor.
 3. Customize the title, author, abstract, and other relevant information.
 4. Begin writing your thesis by adding content to the provided chapters or create new ones.
 5. Use the included sections and formatting guidelines as a reference for structuring your thesis.
